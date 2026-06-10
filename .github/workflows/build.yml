@@ -21,10 +21,10 @@ jobs:
           java-version: '8'  
           distribution: 'temurin'  
   
-      - name: Set up JDK 17  
+      - name: Set up JDK 16  
         uses: actions/setup-java@v4  
         with:  
-          java-version: '17'  
+          java-version: '16'  
           distribution: 'temurin'  
           cache: 'gradle'  
   
@@ -37,7 +37,7 @@ jobs:
           -PciSystem=github  
           -PbuildNumber=${{ github.run_number }}  
           -Pcommit=${{ github.sha }}  
-          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64,JAVA_HOME_17_X64  
+          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_8_X64,JAVA_HOME_16_X64  
           -x licenseFormat  
           -x licenseCheck  
   
