@@ -310,6 +310,11 @@ class MixinPreProcessorStandard {
             this.transform(context);
             activity.end();
             timer.end();
+        } catch (ClassMetadataNotFoundException ex) {
+            throw new ClassMetadataNotFoundException(
+                String.format("Class metadata not found for '%s' while processing mixin class '%s'",
+                    ex.getMessage(), this.mixin),  
+                ex, this.activities);
         } catch (MixinException ex) {
             throw ex;
         } catch (Exception ex) {
